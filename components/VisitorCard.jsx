@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X, Calendar, User, Building, FileText } from "lucide-react";
-import { Loader } from "@/components/ui/loader";
+import { Loader } from "@/components/ui/Loader";
 
 const statusBorder = {
   pending: "border-amber-500",

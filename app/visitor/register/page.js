@@ -26,7 +26,7 @@ export default function RegisterMeetingPage() {
   // Fetch employee roster once
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/employee/all-employees")
+      .get("https://vms-backend-liart.vercel.app/employee/all-employees")
       .then((resp) => {
         if (resp.data.success) setEmployees(resp.data.employees);
         else console.error("Failed to load employees:", resp.data);
@@ -54,7 +54,7 @@ export default function RegisterMeetingPage() {
       };
 
       const resp = await axios.post(
-        "http://127.0.0.1:8000/visitor/register-meeting",
+        "https://vms-backend-liart.vercel.app/visitor/register-meeting",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -74,7 +74,7 @@ export default function RegisterMeetingPage() {
     setLoading(true);
     try {
       const resp = await axios.post(
-        `http://127.0.0.1:8000/visitor/${visitorId}/notify-employee/${employeeId}`
+        `https://vms-backend-liart.vercel.app/visitor/${visitorId}/notify-employee/${employeeId}`
       );
       console.log("notify-employee response:", resp.data);
       if (!resp.data.success) throw new Error("Employee notify failed");
@@ -90,7 +90,7 @@ export default function RegisterMeetingPage() {
     setLoading(true);
     try {
       const resp = await axios.post(
-        `http://127.0.0.1:8000/visitor/${visitorId}/notify-whatsapp`
+        `https://vms-backend-liart.vercel.app/visitor/${visitorId}/notify-whatsapp`
       );
       console.log("notify-whatsapp response:", resp.data);
       if (!resp.data.success) throw new Error("WhatsApp notify failed");

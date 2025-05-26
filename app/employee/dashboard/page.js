@@ -47,7 +47,7 @@ export default function Page() {
       setError("");
       try {
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/employee/${view}-visitors`,
+          `https://vms-backend-liart.vercel.app/employee/${view}-visitors`,
           {
             params: { page, limit },
             headers: { Authorization: `Bearer ${token}` },
@@ -70,7 +70,7 @@ export default function Page() {
     const payload = { _id: id, permission: newStatus, ...fields };
     try {
       const resp = await axios.post(
-        "http://127.0.0.1:8000/employee/employee-approval",
+        "https://vms-backend-liart.vercel.app/employee/employee-approval",
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );

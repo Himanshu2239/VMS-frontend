@@ -44,7 +44,7 @@ export default function Login() {
     setError("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/users/login", {
+      const response = await axios.post("https://vms-backend-liart.vercel.app/users/login", {
         jobId: formData.employeeId,
         password: formData.password,
       });

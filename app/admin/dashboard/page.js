@@ -31,7 +31,7 @@ export default function AdminDashboard() {
       const {
         data: { data: items },
       } = await axios.get(
-        `http://127.0.0.1:8000/admin/admin-approvals/${status}?page=${page}&limit=${limit}`,
+        `https://vms-backend-liart.vercel.app/admin/admin-approvals/${status}?page=${page}&limit=${limit}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (!items?.length) break;
@@ -81,7 +81,7 @@ export default function AdminDashboard() {
       setLoadingStates((s) => ({ ...s, [id]: true }));
       // 1) adminApproval
       const { data: approval } = await axios.post(
-        "http://127.0.0.1:8000/admin/adminApprovals",
+        "https://vms-backend-liart.vercel.app/admin/adminApprovals",
         {
           _id: id,
           permission: "accepted",
@@ -96,7 +96,7 @@ export default function AdminDashboard() {
 
       // 2) notifyVisitorByAdmin
       await axios.get(
-        `http://127.0.0.1:8000/admin/notifyVisitorByAdmin?visitorId=${approval.visitor._id}`,
+        `https://vms-backend-liart.vercel.app/admin/notifyVisitorByAdmin?visitorId=${approval.visitor._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
     try {
       setLoadingStates((s) => ({ ...s, [id]: true }));
       await axios.post(
-        "http://127.0.0.1:8000/admin/adminApprovals",
+        "https://vms-backend-liart.vercel.app/admin/adminApprovals",
         { _id: id, permission: "rejected" },
         { headers: { Authorization: `Bearer ${token}` } }
       );

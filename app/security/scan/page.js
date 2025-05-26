@@ -31,7 +31,7 @@ export default function SecurityScan() {
 
     try {
       const { data } = await axios.get(
-        "http://127.0.0.1:8000/gate/validateGatePass",
+        "https://vms-backend-liart.vercel.app/gate/validateGatePass",
         {
           params: { qrCode: code },
           headers: { Authorization: `Bearer ${token}` },

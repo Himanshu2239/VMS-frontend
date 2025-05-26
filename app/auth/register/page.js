@@ -91,7 +91,7 @@ export default function Register() {
       };
 
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/users/register",
+        "https://vms-backend-liart.vercel.app/users/register",
         payload
       );
 
